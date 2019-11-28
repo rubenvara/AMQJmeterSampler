@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CSU_C09 xmlns="urn:hl7-org:v2xml">
+    <MSH>
+        <MSH.1>|</MSH.1>
+        <MSH.2>^~\&amp;</MSH.2>
+        <MSH.7>20191025082828.584+0200</MSH.7>
+        <MSH.9>
+            <MSG.1>CSU</MSG.1>
+            <MSG.2>C09</MSG.2>
+            <MSG.3>CSU_C09</MSG.3>
+        </MSH.9>
+        <MSH.10>401</MSH.10>
+        <MSH.11>
+            <PT.1>T</PT.1>
+        </MSH.11>
+        <MSH.12>
+            <VID.1>2.6</VID.1>
+        </MSH.12>
+    </MSH>
+</CSU_C09>
+

@@ -217,7 +217,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">C:\Users\rvaravar\eclipse-workspace\jmeter\resultados.jmx</stringProp>
+        <stringProp name="filename">${__property(user.dir)}/resultados.jmx</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
