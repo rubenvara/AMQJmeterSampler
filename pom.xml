@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.acme</groupId>
-	<artifactId>JMeter-ActiveMQ-Sampler</artifactId>
+	<groupId>com.everis.activemq</groupId>
+	<artifactId>jmeter</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>JMeter-ActiveMQ-Sampler</name>
+	<name>Jmeter para activeMQ de crm100</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
