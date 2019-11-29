@@ -58,6 +58,11 @@ public class AMQProducerTopicSampler extends AMQAbstractSampler {
 	}
 
 	@Override
+	protected void customArguments(Arguments args) {
+		args.addArgument(FILE_OR_FILES, "Path to file or dir (only *.xml files are sending)");
+	}
+
+	@Override
 	protected void customTearDownTest() throws JMSException {
 		if (messageProducer != null) {
 			messageProducer.close();

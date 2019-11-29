@@ -12,9 +12,13 @@ import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerClient;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
 import org.apache.jmeter.samplers.SampleResult;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
 
 public abstract class AMQAbstractSampler implements JavaSamplerClient {
 
+	private static final Logger LOGGER = LoggingManager.getLoggerForClass();
+	
 	protected static final String DEFAULT_URL_CONNECTION = "tcp://localhost:61616";
 	protected static final String TOKEN_PASSWORD = "PASSWORD";
 	protected static final String TOKEN_USUARIO = "USERNAME";
@@ -38,9 +42,13 @@ public abstract class AMQAbstractSampler implements JavaSamplerClient {
 		args.addArgument(DESTINATION_NAME, "Queue/Topic name");
 		args.addArgument(TOKEN_USUARIO, "username" + "");
 		args.addArgument(TOKEN_PASSWORD, "pasword");
-		args.addArgument(FILE_OR_FILES, "Path to file or dir (only *.xml files are sending)");
+		customArguments(args);
 
 		return args;
+
+	}
+
+	protected void customArguments(Arguments args) {
 
 	}
 
@@ -72,17 +80,16 @@ public abstract class AMQAbstractSampler implements JavaSamplerClient {
 	private void initConnection(String connectionUrl, String destinationName, String username, String password) {
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(connectionUrl);
 		try {
-
+			
 			connection = connectionFactory.createConnection(username, password);
 			connection.start();
-			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-
+			session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 			Destination destination = buildDestination(destinationName, session);
-
 			customizeInit(session, destination);
 
 		} catch (JMSException e) {
 			setErrorState(e);
+			e.printStackTrace();
 		}
 	}
 
